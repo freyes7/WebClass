@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lab items list</title>
+  <style>
+    .wrong {
+      border-style: solid;
+      border-color: red;
+    }
+  </style>
+  <script src="./utils.js"></script>
+  <script>
+    // DOMContentLoaded wait until all dom is loaded, check the docs in below link
+    // https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
+    document.addEventListener("DOMContentLoaded", (_) => {
+      document.getElementById("sum").textContent = suma
+      let add_item = document.getElementById("add-item");
+      // use here what you have in utils.js
+      add_item.addEventListener("click", add_item_to_list_with_template(get_element_li))
+      let item_input = document.getElementById("item-name")
+      let value_input = document.getElementById("item-value")
+      
+      item_input.addEventListener('input', validateItem)
+      value_input.addEventListener('input', validateValue)
+    });
+  </script>
+</head>
+<body>
+  <div id="container">
+    item: <input type="text" id="item-name">
+    value: <input type="text" id="item-value">
+    <button id="add-item"> add</button>
+  </div>
+  <ul class="items" id="list-items">
+
+  </ul>
+  <div id="total">
+    total = <output id="sum"> </output>
+  </div>
+</body>
+</html>
