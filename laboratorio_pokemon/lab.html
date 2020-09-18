@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lab items list</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./utils.js"></script>
+  <script>
+    // DOMContentLoaded wait until all dom is loaded, check the docs in below link
+    // https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
+    document.addEventListener("DOMContentLoaded", (_) => {
+      // use here what you have in utils.js
+      document.getElementById("add-item").addEventListener("click", get_pokemon_data)
+      document.getElementById("sum").textContent = suma
+    });
+  </script>
+</head>
+<body>
+  <div id="container">
+    name: <input type="text" id="pokemon-name">
+    <button id="add-item"> add</button>
+  </div>
+  <ul class="items" id = "list-items">
+
+  </ul>
+  <div id="total">
+    total = <output id="sum"> </output>
+  </div>
+</body>
+</html>
