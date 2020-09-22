@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lab items list</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./utils.js"></script>
+  <script>
+    // DOMContentLoaded wait until all dom is loaded, check the docs in below link
+    // https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
+    document.addEventListener("DOMContentLoaded", (_) => {
+      // use here what you have in utils.js
+      document.getElementById("search-item").addEventListener("click", get_pokemon_data)
+    });
+  </script>
+</head>
+<body>
+  <div id="container">
+    name: <input type="text" id="pokemon-name">
+    <button id="search-item"> search</button>
+  </div>
+  <div class="card" id = "card" style = "border: thick dotted red">
+
+  </div>
+</body>
+</html>
