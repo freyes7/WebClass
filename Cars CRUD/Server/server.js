@@ -1,5 +1,6 @@
 import axios from 'axios'
 import express from 'express'
+import MongoClient from 'mongodb'
 const app = express()
 import cors from 'cors'
 app.use(express.json())
@@ -7,6 +8,8 @@ app.use(cors())
 
 let pokemonsSaved = {}
 let pokemonById = {}
+
+var DBurl = "mongodb+srv://<user>:<password>@crudpokemon.6kqry.mongodb.net/pokemon?retryWrites=true&w=majority";
 
 function processParams (req) {
     return Object.assign({}, req.body, req.params, req.query)
@@ -33,6 +36,19 @@ app.post('/create', function(req, res) {
     attributes.types = params.types
     pokemonById[attributes.id] = name
     pokemonsSaved[name] = attributes
+    attributes.name = name
+    
+    //Adding to DB
+    MongoClient.connect(DBurl, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db("pokemon");
+      dbo.collection("attributes").insertOne(attributes, function(err, res) {
+        if (err) throw err;
+        console.log("pokemon inserted");
+        db.close();
+      });
+    });
+
     res.send(attributes)
 })
 
