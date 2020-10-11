@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD create</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./utils.js"></script>
+  <script>
+    // DOMContentLoaded wait until all dom is loaded, check the docs in below link
+    // https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
+    document.addEventListener("DOMContentLoaded", (_) => {
+      // use here what you have in utils.js
+      document.getElementById("new-type").addEventListener("click", add_type_input)
+      document.getElementById("create").addEventListener("click", create_pokemon)
+    });
+  </script>
+</head>
+<body>
+  <div id="form">
+    Create a new pokemon
+    <br>
+    name: <br><input type="text" id="pokemon-name">
+    <br>
+    id: <br><input type="text" id="pokemon-id">
+    <br>
+    weight: <br><input type="text" id="pokemon-weight">
+    <br>
+    height: <br><input type="text" id="pokemon-height">
+    <br>
+    base experience: <br><input type="text" id="pokemon-experience">
+    <br>
+  </div>
+  <div id="buttons">
+    <button id="new-type"> Add Type</button>
+    <br>
+    <button id="create"> Create</button>
+  </div>
+</body>
+</html>

@@ -23,7 +23,7 @@ app.get('/get/:id', function(req, res) {
 })
 
 app.post('/create', function(req, res) {
-    let params = processParams(req)
+    let params = processParams(req).params
     let attributes = {}
     let name = params.name
     attributes.id = params.id
@@ -33,6 +33,7 @@ app.post('/create', function(req, res) {
     attributes.types = params.types
     pokemonById[attributes.id] = name
     pokemonsSaved[name] = attributes
+    res.send(attributes)
 })
 
 app.put('/update/:id', function(req, res) {
